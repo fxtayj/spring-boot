@@ -1,0 +1,38 @@
+buildscript {
+    repositories {
+        mavenLocal()
+        mavenCentral()
+    }
+    dependencies { classpath("org.springframework.boot:spring-boot-gradle-plugin:1.2.2.RELEASE") }
+}
+
+apply plugin: 'java'
+apply plugin: 'spring-boot'
+apply plugin: 'eclipse'
+
+jar {
+    baseName = 'spring-boot'
+    version = '0.1.0'
+    manifest { attributes 'Main-Class': 'com.tonyfxt.demo.Application' }
+}
+
+repositories {
+    mavenLocal()
+    maven{ url 'http://nexus.dui88.com/nexus/'}   //兑吧线上maven仓库
+    mavenCentral()
+}
+
+dependencies {
+    compile("org.springframework.boot:spring-boot-starter-web")
+    compile("org.springframework.boot:spring-boot-starter-jdbc")
+	compile("org.springframework.boot:spring-boot-starter-test")
+    compile("org.mybatis:mybatis:3.2.4")
+    compile("org.mybatis:mybatis-spring:1.2.2")
+//	compile("org.apache.httpcomponents:httpclient:4.3.3")
+//  compile('org.apache.httpcomponents:httpasyncclient:4.1')
+    compile('mysql:mysql-connector-java:5.1.34')
+    compile('commons-dbcp:commons-dbcp:1.4')
+    compile('commons-lang:commons-lang:2.6')
+    compile fileTree(dir: 'lib', include: '*.jar')
+    testCompile("junit:junit")
+}

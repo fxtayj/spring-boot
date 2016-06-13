@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+	<include resource="org/springframework/boot/logging/logback/defaults.xml"/>
+    <property name="logpath" value="${LOG_PATH:-${LOG_TEMP:-${java.io.tmpdir:-/tmp}}/}"/>
+	<include resource="logback/default.xml" />
+	<include resource="logback/httprequestlog.xml" />
+</configuration>
